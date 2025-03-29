@@ -1,0 +1,3 @@
+INSERT INTO trader VALUES (1, 'Juan Pablo Higuita Cano', 'jhiguita@gmail.com', 1000, TO_TIMESTAMP('10/08/1992 17:30:00','DD/MM/YYYY HH24:MI:SS'), NULL);
+INSERT INTO trader VALUES (2, 'Manuela Saldarriaga', 'msaldarriaga@gmail.com', 1000, TO_TIMESTAMP('10/08/1992 17:30:00','DD/MM/YYYY HH24:MI:SS'), NULL);
+INSERT INTO trader VALUES (3, 'Santiago Herrera', 'sherrera@gmail.com', 1000, TO_TIMESTAMP('10/08/1992 17:30:00','DD/MM/YYYY HH24:MI:SS'), NULL);
