@@ -17,6 +17,15 @@ public class Trader {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
+    public Trader(){
+    }
+
+    public Trader(String name, String email, Double balance){
+        this.name = name;
+        this.email = email;
+        this.balance = balance;
+    }
+
     public Integer getId() {
         return id;
     }
