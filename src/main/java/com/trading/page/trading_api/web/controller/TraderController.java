@@ -50,7 +50,6 @@ public class TraderController {
         return new TraderDTO(trader);
     }
 
-
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<TraderDTO> getAllTraders() {

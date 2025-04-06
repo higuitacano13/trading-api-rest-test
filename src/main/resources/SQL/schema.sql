@@ -7,3 +7,11 @@ CREATE TABLE trader(
    "updated_at" TIMESTAMP NULL,
    PRIMARY KEY("id")
 );
+
+-- Elimina la restricción NOT NULL primero si es necesario
+ALTER TABLE trader
+    ALTER COLUMN id DROP DEFAULT;
+
+-- Convierte 'id' en una columna autogenerada (PostgreSQL 10+)
+ALTER TABLE trader
+ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
