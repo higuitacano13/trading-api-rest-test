@@ -1,5 +1,6 @@
 package com.trading.page.trading_api.domain.service;
 
+import com.trading.page.trading_api.domain.dto.TraderDTO;
 import com.trading.page.trading_api.domain.repository.TraderRepository;
 import com.trading.page.trading_api.persistence.entities.Trader;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,18 +30,15 @@ public class TraderService {
         return traderRepository.findAll();
     }
 
-    public void updateTrader(String email, String name) {
-        Trader exitingTrader = traderRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("Trader not found"));
-
-        exitingTrader.setName(name);
-        exitingTrader.setUpdatedAt(LocalDateTime.now());
-        traderRepository.save(exitingTrader);
+    public void updateTrader(TraderDTO newTraderInfo, Trader existingTrader) {
+        existingTrader.setName(newTraderInfo.getName());
+        existingTrader.setUpdatedAt(LocalDateTime.now());
+        traderRepository.save(existingTrader);
     }
 
-    public void addMoney(String email, Double amount) {
-        Trader exitingTrader = traderRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("Trader not found"));
-        exitingTrader.setBalance(exitingTrader.getBalance() + amount);
-        traderRepository.save(exitingTrader);
+    public void addMoney(TraderDTO newTraderInfo, Trader existingTrader) {
+        existingTrader.setBalance(existingTrader.getBalance() + newTraderInfo.getBalance());
+        traderRepository.save(existingTrader);
     }
 
 

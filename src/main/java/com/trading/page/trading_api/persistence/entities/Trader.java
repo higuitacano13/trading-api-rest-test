@@ -14,7 +14,11 @@ public class Trader {
     private String name;
     private String email;
     private Double balance;
+
+    @Column(name = "createdAt", nullable = false)
     private LocalDateTime createdAt;
+
+    @Column(name = "updatedAt", nullable = true)
     private LocalDateTime updatedAt;
 
     public Trader(){
