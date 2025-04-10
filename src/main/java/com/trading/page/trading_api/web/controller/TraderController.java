@@ -16,7 +16,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/trading/traders")
+@RequestMapping("/traders")
 public class TraderController {
     @Autowired
     private TraderService traderService;
@@ -39,7 +39,7 @@ public class TraderController {
         traderService.registerTrader(trader);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/getTraderByEmail", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public TraderDTO getTraderByEmail(@RequestParam("email") String email) {
         Trader trader = traderService.getTraderByEmail(email);
@@ -69,7 +69,7 @@ public class TraderController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(value = "/updateTrader", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     public void updateTrader(@RequestBody TraderDTO trader) {
 
